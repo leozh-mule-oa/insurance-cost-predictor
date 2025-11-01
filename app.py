@@ -29,7 +29,7 @@ def load_data():
 
 df = load_data()
 st.subheader("📊 Data Preview")
-st.dataframe(df.head(), use_container_width=True)
+st.dataframe(df.head(1000), use_container_width=True)
 
 # -------------------------------
 # 3. DATA PREPROCESSING
@@ -68,7 +68,7 @@ with col2:
     st.pyplot(fig, use_container_width=True)
 
 st.markdown("**Correlation Heatmap**")
-fig, ax = plt.subplots(figsize=(3.5, 3))
+fig, ax = plt.subplots(figsize=(7, 6))
 sns.heatmap(df_processed.corr(), annot=True, fmt=".2f", cmap="coolwarm", ax=ax,
             annot_kws={"size": 7}, cbar_kws={"shrink": 0.5})
 fig.tight_layout(pad=0.5)
@@ -103,7 +103,7 @@ mse = mean_squared_error(y_test, preds)
 rmse = np.sqrt(mse)
 
 st.subheader("🧮 Model Performance")
-st.info(f"Mean Squared Error (MSE): **{mse:,.2f}**")
+#st.info(f"Mean Squared Error (MSE): **{mse:,.2f}**")
 st.success(f"Root Mean Squared Error (RMSE): **${rmse:,.2f}**")
 
 # -------------------------------
