@@ -24,7 +24,7 @@ st.write("Predict individual insurance costs based on demographic & health-relat
 # -------------------------------
 @st.cache_data
 def load_data():
-    df = pd.read_csv("insurance.csv")  # Ensure insurance.csv is in the same folder
+    df = pd.read_csv("insurance.csv")  # Ensure insurance.csv is in the same folder https://www.kaggle.com/datasets/mirichoi0218/insurance?resource=download
     return df
 
 df = load_data()
