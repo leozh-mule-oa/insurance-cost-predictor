@@ -68,7 +68,7 @@ with col2:
     st.pyplot(fig, use_container_width=True)
 
 st.markdown("**Correlation Heatmap**")
-fig, ax = plt.subplots(figsize=(7, 6))
+fig, ax = plt.subplots(figsize=(6, 5))
 sns.heatmap(df_processed.corr(), annot=True, fmt=".2f", cmap="coolwarm", ax=ax,
             annot_kws={"size": 7}, cbar_kws={"shrink": 0.5})
 fig.tight_layout(pad=0.5)
