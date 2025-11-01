@@ -16,7 +16,7 @@ st.set_page_config(
     layout="wide",
     page_icon="💖"
 )
-st.title("💰 Insurance Premium Prediction App")
+st.title("💰 Insurance Premium Prediction")
 st.write("Predict individual insurance Premium based on demographic & health-related features. Life Insurance Dataset from Kaggle are used")
 
 # -------------------------------
@@ -28,7 +28,7 @@ def load_data():
     return df
 
 df = load_data()
-st.subheader("📊 Data Preview")
+st.subheader("📊 Raw Data Preview")
 st.dataframe(df.head(1000), use_container_width=True)
 
 # -------------------------------
