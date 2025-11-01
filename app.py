@@ -12,12 +12,12 @@ from sklearn.metrics import mean_squared_error
 # 1. PAGE CONFIGURATION
 # -------------------------------
 st.set_page_config(
-    page_title="💰 Insurance Cost Predictor",
+    page_title="💰 Insurance Premium Predictor",
     layout="wide",
     page_icon="💖"
 )
-st.title("💰 Insurance Cost Prediction App")
-st.write("Predict individual insurance costs based on demographic & health-related features. Life Insurance Dataset from Kaggle are used")
+st.title("💰 Insurance Premium Prediction App")
+st.write("Predict individual insurance Premium based on demographic & health-related features. Life Insurance Dataset from Kaggle are used")
 
 # -------------------------------
 # 2. LOAD DATA
