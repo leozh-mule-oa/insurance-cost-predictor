@@ -17,7 +17,7 @@ st.set_page_config(
     page_icon="💖"
 )
 st.title("💰 Insurance Cost Prediction App")
-st.write("Predict individual insurance costs based on demographic & health-related features.")
+st.write("Predict individual insurance costs based on demographic & health-related features. Life Insurance Dataset from Kaggle are used.")
 
 # -------------------------------
 # 2. LOAD DATA
