@@ -140,6 +140,27 @@ st.markdown("""
 """)
 
 # -------------------------------
+# 6.5 FEATURE IMPORTANCE (Random Forest)
+# -------------------------------
+if model_name == "Random Forest Regressor":
+    st.subheader("🌟 Feature Importance (Random Forest)")
+    importances = model.feature_importances_
+    feat_imp_df = pd.DataFrame({
+        "Feature": feature_cols,
+        "Importance": importances
+    }).sort_values(by="Importance", ascending=True)
+    
+    # Smaller figure
+    fig, ax = plt.subplots(figsize=(5, 3))  # smaller size
+    ax.barh(feat_imp_df["Feature"], feat_imp_df["Importance"], color="#1e90ff", alpha=0.7)
+    ax.set_xlabel("Importance")
+    ax.set_title("Feature Importance")
+    fig.tight_layout(pad=0.5)
+    st.pyplot(fig, use_container_width=False)
+
+
+
+# -------------------------------
 # 7. USER INPUT & PREDICTION
 # -------------------------------
 st.subheader("🎯 Predict Your Premium / Cost")
