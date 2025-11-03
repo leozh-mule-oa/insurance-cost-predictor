@@ -38,6 +38,7 @@ df_processed = df.copy()
 # Encode categorical variables
 df_processed['sex'] = df_processed['sex'].map({'male': 0, 'female': 1})
 df_processed['smoker'] = df_processed['smoker'].map({'no': 0, 'yes': 1})
+# drops the first category alphabetically by default (northeast).
 df_processed = pd.get_dummies(df_processed, columns=['region'], drop_first=True)
 
 feature_cols = ['age', 'sex', 'bmi', 'children', 'smoker',
@@ -77,11 +78,7 @@ st.pyplot(fig, use_container_width=False)
 # -------------------------------
 # 5. MODEL SELECTION & TRAINING
 # -------------------------------
-st.markdown("""
-<div style='background-color:#f0f8ff; padding:10px; border-radius:10px;'>
-<h3 style='color:#1e90ff; text-align:center;'>⚙️ Select a Model to Train</h3>
-</div>
-""", unsafe_allow_html=True)
+st.subheader("🧪 Select a Model to Train")
 
 model_name = st.radio("", ("Linear Regression", "Random Forest Regressor"), index=0, horizontal=True)
 
@@ -104,7 +101,8 @@ rmse = np.sqrt(mse)
 
 st.subheader("🧮 Model Performance")
 #st.info(f"Mean Squared Error (MSE): **{mse:,.2f}**")
-st.success(f"Root Mean Squared Error (RMSE): **${rmse:,.2f}**")
+#st.success(f"Root Mean Squared Error (RMSE): **${rmse:,.2f}**")
+st.metric("Root Mean Squared Error (RMSE)", f"${rmse:,.2f}")
 
 # -------------------------------
 # 6. MODEL DIAGNOSTICS
@@ -180,7 +178,14 @@ with col5:
     sex_val = 1 if sex_option == "Female" else 0
 
 region_option = st.selectbox("Region", ("southwest", "southeast", "northwest", "northeast"))
-region_dict = {"southwest":[1,0,0], "southeast":[0,1,0], "northwest":[0,0,1], "northeast":[0,0,0]}
+#region_dict = {"southwest":[1,0,0], "southeast":[0,1,0], "northwest":[0,0,1], "northeast":[0,0,0]}
+region_dict = {
+    "northwest": [1,0,0],
+    "southeast": [0,1,0],
+    "southwest": [0,0,1],
+    "northeast": [0,0,0]
+}
+
 region_vals = region_dict[region_option]
 
 input_dict = {
@@ -189,9 +194,9 @@ input_dict = {
     'bmi': bmi,
     'children': children,
     'smoker': smoker_val,
-    'region_northwest': region_vals[2],
+    'region_northwest': region_vals[0],
     'region_southeast': region_vals[1],
-    'region_southwest': region_vals[0]
+    'region_southwest': region_vals[2]
 }
 
 # **FIX:** Ensure columns match training feature order
