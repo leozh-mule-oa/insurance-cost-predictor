@@ -72,6 +72,8 @@ Follow these steps to set up and run the project locally.
 git clone https://github.com/yourusername/insurance-premium-predictor.git
 cd insurance-premium-predictor
 
+---
+
 ### 2️⃣ Install Dependencies
 
 ```bash
@@ -86,6 +88,8 @@ numpy
 matplotlib
 seaborn
 scikit-learn
+
+---
 
 ### 3️⃣ Download the Dataset
 
@@ -104,7 +108,9 @@ insurance-premium-predictor/
 ├── requirements.txt
 └── README.md
 
-4️⃣ Run the Streamlit App
+---
+
+### 4️⃣ Run the Streamlit App
 
 Run the app locally using the command below:
 
@@ -153,3 +159,5 @@ Developed by: Leo Zhang
 
 This project is open-sourced under the MIT License.
 Feel free to fork, modify, and use it for learning or demonstrations.
+
+---
